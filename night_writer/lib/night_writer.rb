@@ -25,7 +25,7 @@ class NightWriter
   # end
 end
 
-night_writer = NightWriter.new 
+# night_writer = NightWriter.new 
 
-night_writer.call
+# night_writer.call
 
