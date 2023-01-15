@@ -49,14 +49,16 @@ class NightWriter
 
   end
 
-  def translate_to_braille(message_text)
-    message_array = message_text.chars
-
-    braille_array = message_array.map do |letter|
-    @braille_alphabet[letter]
-   end
-    braille_array.transpose.map(&:join).join("\n")    
-    # require'pry';binding.pry
+  def translate_to_braille(message_text)    
+    braille_array = message_text.chars.filter_map do |letter|
+      @braille_alphabet[letter]
+    end
+    
+    sliced_array = braille_array.transpose.map do |braille|
+      braille.join.chars.each_slice(80).map do |slice|
+        slice.join
+      end
+    end.transpose.join("\n")
   end
 end
 
