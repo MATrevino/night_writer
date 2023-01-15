@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-14T15:37:38-07:00">2023-01-14T15:37:38-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-14T17:16:33-07:00">2023-01-14T17:16:33-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.39
+         4.06
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>18</b> relevant lines,
-    <span class="green"><b>18</b> lines covered</span> and
+    <b>17</b> relevant lines,
+    <span class="green"><b>17</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -74,10 +74,10 @@
             <td class="strong t-file__name"><a href="#45107460c8fbd9f55d2df756d6e1fc8902779f43" class="src_link" title="lib/night_writer.rb">lib/night_writer.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">66</td>
-            <td class="cell--number">18</td>
-            <td class="cell--number">18</td>
+            <td class="cell--number">17</td>
+            <td class="cell--number">17</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.39</td>
+            <td class="cell--number">4.06</td>
             
           </tr>
         
@@ -112,8 +112,8 @@
     
 
     <div class="t-line-summary">
-      <b>18</b> relevant lines.
-      <span class="green"><b>18</b> lines covered</span> and
+      <b>17</b> relevant lines.
+      <span class="green"><b>17</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -494,7 +494,7 @@
 
             
 
-            <code class="ruby">      &quot;z&quot; =&gt; [&quot;0.&quot;, &quot;0.&quot;, &quot;00&quot;]</code>
+            <code class="ruby">      &quot;z&quot; =&gt; [&quot;0.&quot;, &quot;0.&quot;, &quot;00&quot;],</code>
           </li>
         </div>
       
@@ -505,7 +505,7 @@
 
             
 
-            <code class="ruby">      }</code>
+            <code class="ruby">      &quot; &quot; =&gt; [&quot;..&quot;, &quot;..&quot;, &quot;..&quot;]</code>
           </li>
         </div>
       
@@ -516,7 +516,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      }</code>
           </li>
         </div>
       
@@ -527,18 +527,18 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="38">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="38">
+            
             
 
             
 
-            <code class="ruby">  def call</code>
+            <code class="ruby">  </code>
           </li>
         </div>
       
@@ -549,34 +549,23 @@
 
             
 
-            <code class="ruby">  message_file = File.open(@read_file, &quot;r&quot;)</code>
+            <code class="ruby">  def call</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="40">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="41">
+          <li class="covered" data-hits="1" data-linenumber="40">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  message = message_file.read</code>
+            <code class="ruby">  message_text = File.read(@read_file)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
@@ -587,18 +576,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="43">
+          <li class="covered" data-hits="1" data-linenumber="42">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  char_count = message.chars.count</code>
+            <code class="ruby">  char_count = message_text.chars.count</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="44">
+          <li class="never" data-hits="" data-linenumber="43">
             
             
 
@@ -609,7 +598,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="45">
+          <li class="covered" data-hits="1" data-linenumber="44">
             <span class="hits">1</span>
             
 
@@ -620,7 +609,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
@@ -631,24 +620,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="47">
+          <li class="covered" data-hits="1" data-linenumber="46">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  File.write(@write_file, message)</code>
+            <code class="ruby">  translated_text = translate_to_braille(message_text)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="48">
+          <li class="never" data-hits="" data-linenumber="47">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="48">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  File.write(@write_file, translated_text)</code>
           </li>
         </div>
       
@@ -659,7 +659,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -670,18 +670,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="51">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="51">
+            
             
 
             
 
-            <code class="ruby">  def translate_to_braille</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -692,12 +692,23 @@
 
             
 
-            <code class="ruby">    message = ((File.open(@read_file, &quot;r&quot;)).read).chars</code>
+            <code class="ruby">  def translate_to_braille(message_text)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="53">
+          <li class="covered" data-hits="2" data-linenumber="53">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    message_array = message_text.chars</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
             
             
 
@@ -708,19 +719,19 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="54">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="55">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    braille_array = message.map do |letter|</code>
+            <code class="ruby">    braille_array = message_array.map do |letter|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="55">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="44" data-linenumber="56">
+            <span class="hits">44</span>
             
 
             
@@ -730,7 +741,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="never" data-hits="" data-linenumber="57">
             
             
 
@@ -741,24 +752,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="57">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="58">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    braille_array.transpose.map(&amp;:join).join(&quot;\n&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="58">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    require&#39;pry&#39;;binding.pry</code>
+            <code class="ruby">    braille_array.transpose.map(&amp;:join).join(&quot;\n&quot;)    </code>
           </li>
         </div>
       
@@ -769,7 +769,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby">    # require&#39;pry&#39;;binding.pry</code>
           </li>
         </div>
       
