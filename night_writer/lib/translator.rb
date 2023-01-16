@@ -1,11 +1,6 @@
-class NightWriter
-  attr_accessor :read_file,
-                :write_file
-
+class Translator
   def initialize
-    @read_file = ARGV[0]
-    @write_file = ARGV[1]
-    @braille_alphabet = {
+    braille_alphabet = {
       "a" => ["0.", "..", ".."],
       "b" => ["00", "..", ".."],
       "c" => ["0.", ".0", ".."],
@@ -31,37 +26,18 @@ class NightWriter
       "w" => [".0", ".0", "00"],
       "x" => ["0.", "00", ".0"],
       "y" => ["0.", "00", "00"],
-      "z" => ["0.", "0.", "00"],
-      " " => ["..", "..", ".."]
+      "z" => ["0.", "0.", "00"]
       }
-  end
-  
-  def call
-  message_text = File.read(@read_file)
-  
-  char_count = message_text.chars.count
-  
-  puts "Created #{@write_file} contains #{char_count} characters"
- 
-  translated_text = translate_to_braille(message_text)
-
-  File.write(@write_file, translated_text)
-
+    
   end
 
-  def translate_to_braille(message_text)    
-    braille_array = message_text.chars.filter_map do |letter|
+  def english_to_braille(string)
+    braille_array = string.chars.map do |letter|
       @braille_alphabet[letter]
     end
-    sliced_array = braille_array.transpose.map do |braille|
-      braille.join.chars.each_slice(80).map do |slice|
-        slice.join
-      end
-    end.transpose.join("\n")
+
+    braille_array.map do |braille|
+      
+    end
   end
 end
-
-night_writer = NightWriter.new 
-
-night_writer.call
-
