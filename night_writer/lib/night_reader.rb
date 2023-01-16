@@ -38,7 +38,7 @@ class NightReader
 
   def read_and_write
     message_text = File.read(@read_file)
-    character_count = message_text.delete("\n").chars.count
+    character_count = (message_text.delete("\n").chars.count)/6
     
     puts "Created #{@write_file} contains #{character_count} characters"
     
@@ -51,13 +51,19 @@ class NightReader
     br_message_array = []
     br_message_array << message_text.split
 
+    array_with_three_rows = []
     split_array = []
     br_message_array.map do |braille|
-      braille.each do |row|
+      
+      top_row = (braille.select.with_index{|_,i| (i+3) % 3 == 0}).join
+      middle_row = (braille.select.with_index{|_,i| (i+3) % 3 == 1}).join
+      bottom_row = (braille.select.with_index{|_,i| (i+3) % 3 == 2}).join
+
+      array_with_three_rows = [top_row, middle_row, bottom_row]
+      array_with_three_rows.each do |row|
         split_array << row.chars.each_slice(2).map(&:join)
       end
     end
-    require'pry';binding.pry
     
     in_eng = []
     split_array.transpose.map do |letter|
