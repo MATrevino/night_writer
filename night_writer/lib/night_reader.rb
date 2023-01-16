@@ -37,18 +37,28 @@ class NightReader
   end
 
   def read_and_write
-    require'pry';binding.pry
-    message = File.read(@read_file)
-    character_count = message.chars.count/8
+    # require 'pry';binding.pry
+    message_text = File.read(@read_file)
+    character_count = (message_text.chars.count)/8
 
     puts "Created #{@write_file} contains #{character_count} characters"
 
-    # translated = translate_to_english(message)
+    # translated = translate_to_english(message_text)
 
-    File.write(@write_file, message)
+    # File.write(@write_file, translated)
+  end
+
+  def translate_to_english(message)
+    br_message_array = []
+    br_message_array << message.split("\n")
+    
+    english_array = br_message_array.filter_map do |braille|
+      @eng_to_bra_alphabet[braille]
+    end.join
   end
 end
+# require'pry';binding.pry
 
-# night_reader = NightReader.new 
+night_reader = NightReader.new 
 
-# night_reader.read_and_write
+night_reader.read_and_write
