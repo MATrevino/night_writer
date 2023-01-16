@@ -53,14 +53,22 @@ class NightReader
 
     split_array = []
     br_message_array.map do |braille|
-      require'pry';binding.pry
       braille.each do |row|
         split_array << row.chars.each_slice(2).map(&:join)
       end
     end
+    require'pry';binding.pry
+    
+    in_eng = []
     split_array.transpose.map do |letter|
-      @bra_to_eng_alphabet[letter]
-    end.join
+      in_eng << @bra_to_eng_alphabet[letter]
+    end
+    
+    if in_eng.count >= 40
+      in_eng.each_slice(40).map(&:join).join("\n")
+    else
+      in_eng.join
+    end
   end
 end
 
