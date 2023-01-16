@@ -5,7 +5,7 @@ class NightReader
   def initialize
     @read_file = ARGV[0]
     @write_file = ARGV[1]
-    @eng_to_bra_alphabet = {
+    @bra_to_eng_alphabet = {
       ["0.", "..", ".."] => "a",
       ["00", "..", ".."] => "b",
       ["0.", ".0", ".."] => "c",
@@ -37,27 +37,32 @@ class NightReader
   end
 
   def read_and_write
-    # require 'pry';binding.pry
     message_text = File.read(@read_file)
-    character_count = (message_text.chars.count)/8
-
-    puts "Created #{@write_file} contains #{character_count} characters"
-
-    # translated = translate_to_english(message_text)
-
-    # File.write(@write_file, translated)
-  end
-
-  def translate_to_english(message)
-    br_message_array = []
-    br_message_array << message.split("\n")
+    character_count = message_text.delete("\n").chars.count
     
-    english_array = br_message_array.filter_map do |braille|
-      @eng_to_bra_alphabet[braille]
+    puts "Created #{@write_file} contains #{character_count} characters"
+    
+    translated = translate_to_english(message_text)
+    
+    File.write(@write_file, translated)
+  end
+  
+  def translate_to_english(message_text)
+    br_message_array = []
+    br_message_array << message_text.split
+
+    split_array = []
+    br_message_array.map do |braille|
+      require'pry';binding.pry
+      braille.each do |row|
+        split_array << row.chars.each_slice(2).map(&:join)
+      end
+    end
+    split_array.transpose.map do |letter|
+      @bra_to_eng_alphabet[letter]
     end.join
   end
 end
-# require'pry';binding.pry
 
 night_reader = NightReader.new 
 

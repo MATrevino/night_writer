@@ -31,13 +31,13 @@ class Translator
     
   end
 
-  def english_to_braille(string)
-    braille_array = string.chars.map do |letter|
-      @braille_alphabet[letter]
-    end
+  # def english_to_braille(string)
+  #   braille_array = string.chars.map do |letter|
+  #     @braille_alphabet[letter]
+  #   end
 
-    braille_array.map do |braille|
-      
-    end
-  end
+  #   braille_array.map do |braille|
+
+  #   end
+  # end
 end
