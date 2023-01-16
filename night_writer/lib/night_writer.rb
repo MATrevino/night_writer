@@ -53,7 +53,6 @@ class NightWriter
     braille_array = message_text.chars.filter_map do |letter|
       @braille_alphabet[letter]
     end
-    
     sliced_array = braille_array.transpose.map do |braille|
       braille.join.chars.each_slice(80).map do |slice|
         slice.join
