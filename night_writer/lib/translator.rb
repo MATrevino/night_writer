@@ -64,6 +64,29 @@ class Translator
       }
   end
 
+  def call
+    message_text = File.read(@read_file)
+    
+    char_count = message_text.chars.count
+    
+    puts "Created #{@write_file} contains #{char_count} characters"
+   
+    translated_text = translate_to_braille(message_text)
+  
+    File.write(@write_file, translated_text)
+  
+  end
+
+  def translate_to_braille(message_text)    
+    braille_array = message_text.chars.filter_map do |letter|
+      @braille_alphabet[letter]
+    end
+    sliced_array = braille_array.transpose.map do |braille|
+      braille.join.chars.each_slice(80).map do |slice|
+        slice.join
+      end
+    end.transpose.join("\n")
+  end
 
   def read_and_write
     message_text = File.read(@read_file)
