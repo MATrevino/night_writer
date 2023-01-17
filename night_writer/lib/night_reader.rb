@@ -1,4 +1,6 @@
-class NightReader
+require_relative 'translator'
+
+class NightReader < Translator
   attr_accessor :read_file,
                 :write_file
 

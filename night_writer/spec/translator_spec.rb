@@ -13,6 +13,6 @@ RSpec.describe Translator do
 
   describe 'english to braille' do
     it 'should translate eng to braille' do
-    expect(translator.english_to_braille).to eq([["0.", "..", ".."], ["00", "..", ".."]])
+    expect(translator.english_to_braille("ab")).to eq([["0.", "..", ".."], ["00", "..", ".."]])
   end
 end
