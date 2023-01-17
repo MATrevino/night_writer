@@ -38,7 +38,6 @@ class NightReader < Translator
     end
     
     in_eng = []
-    
     split_array.transpose.map do |letter|
       in_eng << bra_to_eng_alphabet[letter]
     end
@@ -52,5 +51,4 @@ class NightReader < Translator
 end
 
 night_reader = NightReader.new 
-  
 night_reader.call
