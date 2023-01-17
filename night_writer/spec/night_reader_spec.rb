@@ -26,5 +26,9 @@ RSpec.describe NightReader do
   it 'can translate two letters to braille' do
     expect(night_reader.translate("0..0\n000.\n....")).to eq("hi")
   end
+
+  it 'can translate and wrap text' do
+    expect(night_reader.translate(".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..000.00\n0000.0..00..0.......0.00.000.0..0..0..........0.0....00..000..0000.0..0....0.0...0.000\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000....0...")).to eq("the quick brown fox jumps over the lazy \ndog")
+  end
 end
 

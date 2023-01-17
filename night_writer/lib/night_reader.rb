@@ -51,6 +51,6 @@ class NightReader < Translator
   end
 end
 
-# night_reader = NightReader.new 
+night_reader = NightReader.new 
   
-# night_reader.call
+night_reader.call
