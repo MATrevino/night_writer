@@ -17,7 +17,7 @@ RSpec.describe NightReader do
   end
 
   it 'can translate to english from braille' do
-    expect(night_reader.translate_to_english("0.\n..\n..")).to eq("a")
+    expect(night_reader.read_and_write).to eq()
   end
 end
 

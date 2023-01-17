@@ -31,54 +31,26 @@ class Translator
       "w" => [".0", ".0", "00"],
       "x" => ["0.", "00", ".0"],
       "y" => ["0.", "00", "00"],
-      "z" => ["0.", "0.", "00"]
-      }
-    @bra_to_eng_alphabet = {
-      ["0.", "..", ".."] => "a",
-      ["00", "..", ".."] => "b",
-      ["0.", ".0", ".."] => "c",
-      ["0.", ".0", "0."] => "d",
-      ["0.", "..", "0."] => "e",
-      ["00", ".0", ".."] => "f",
-      ["00", ".0", "0."] => "g",
-      ["00", "..", "0."] => "h",
-      [".0", ".0", ".."] => "i",
-      [".0", ".0", "0."] => "j",
-      ["0.", "0.", ".."] => "k",
-      ["00", "0.", ".."] => "l",
-      ["0.", "00", ".."] => "m",
-      ["0.", "00", "0."] => "n",
-      ["0.", "0.", "0."] => "o",
-      ["00", "00", ".."] => "p",
-      ["00", "00", "0."] => "q",
-      ["00", "0.", "0."] => "r",
-      [".0", "00", ".."] => "s",
-      [".0", "00", "0."] => "t",
-      ["0.", "0.", ".0"] => "u",
-      ["00", "0.", ".0"] => "v",
-      [".0", ".0", "00"] => "w",
-      ["0.", "00", ".0"] => "x",
-      ["0.", "00", "00"] => "y",
-      ["0.", "0.", "00"] => "z",
-      ["..", "..", ".."] => " "      
+      "z" => ["0.", "0.", "00"],
+      " " => ["..", "..", ".."]
       }
   end
 
   def call
-    message_text = File.read(@read_file)
+    message_in_eng = File.read(@read_file)
     
-    char_count = message_text.chars.count
+    char_count = message_in_eng.chars.count
     
     puts "Created #{@write_file} contains #{char_count} characters"
    
-    translated_text = translate_to_braille(message_text)
+    translated_text = translate_to_braille(message_in_eng)
   
     File.write(@write_file, translated_text)
   
   end
 
-  def translate_to_braille(message_text)    
-    braille_array = message_text.chars.filter_map do |letter|
+  def translate_to_braille(message_in_eng)    
+    braille_array = message_in_eng.chars.filter_map do |letter|
       @braille_alphabet[letter]
     end
     sliced_array = braille_array.transpose.map do |braille|
@@ -97,6 +69,10 @@ class Translator
     translated = translate_to_english(message_text)
     
     File.write(@write_file, translated)
+  end
+
+  def bra_to_eng_alphabet
+    @braille_alphabet.invert
   end
 
   def translate_to_english(message_text)
@@ -119,7 +95,7 @@ class Translator
     
     in_eng = []
     split_array.transpose.map do |letter|
-      in_eng << @bra_to_eng_alphabet[letter]
+      in_eng << bra_to_eng_alphabet[letter]
     end
     
     if in_eng.count >= 40
