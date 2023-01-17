@@ -8,6 +8,6 @@ class NightReader < Translator
   end
 end
 
-night_reader = NightReader.new 
+# night_reader = NightReader.new 
 
-night_reader.read_and_write
+# night_reader.read_and_write

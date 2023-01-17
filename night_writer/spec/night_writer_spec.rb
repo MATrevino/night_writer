@@ -11,13 +11,7 @@ RSpec.describe NightWriter do
   end
 
   it 'has attributes' do
-    night_writer.call
     expect(night_writer.read_file).to eq('./message.txt')
     expect(night_writer.write_file).to eq('./braille.txt')
-  end
-
-  it 'can take in a letter and translate to braille' do
-
-    expect(night_writer.call).to eq()
   end
 end

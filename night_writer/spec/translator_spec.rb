@@ -41,10 +41,10 @@ RSpec.describe Translator do
     }
     expect(translator.bra_to_eng_alphabet).to eq(expected)
   end
-  
-  # it 'should translate eng to braille' do
-  # expect(translator.english_to_braille("ab")).to eq([["0.", "..", ".."], ["00", "..", ".."]])
-  # end
+
+  xit 'should translate eng to braille' do
+  expect(translator.english_to_braille("ab")).to eq([["0.", "..", ".."], ["00", "..", ".."]])
+  end
   
   # it 'can translate to english from braille' do
   #   expect(night_reader.translate_to_english("0.\n..\n..")).to eq("a")

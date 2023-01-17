@@ -11,13 +11,8 @@ RSpec.describe NightReader do
   end
 
   it 'has attributes' do
-    night_reader.read_and_write
     expect(night_reader.read_file).to eq('./braille.txt')
     expect(night_reader.write_file).to eq('./original_message.txt')
-  end
-
-  it 'can translate to english from braille' do
-    expect(night_reader.read_and_write).to eq()
   end
 end
 

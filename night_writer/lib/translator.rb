@@ -32,7 +32,8 @@ class Translator
       "x" => ["0.", "00", ".0"],
       "y" => ["0.", "00", "00"],
       "z" => ["0.", "0.", "00"],
-      " " => ["..", "..", ".."]
+      " " => ["..", "..", ".."],
+      "!" => ["..", "00", "0."]
       }
   end
 
@@ -64,11 +65,14 @@ class Translator
     message_text = File.read(@read_file)
     character_count = (message_text.delete("\n").chars.count)/6
     
-    puts "Created #{@write_file} contains #{character_count} characters"
-    
+    message_file_characters_eng
     translated = translate_to_english(message_text)
     
     File.write(@write_file, translated)
+  end
+
+  def message_file_characters_eng
+    puts "Created #{@write_file} contains #{character_count} characters"
   end
 
   def bra_to_eng_alphabet
