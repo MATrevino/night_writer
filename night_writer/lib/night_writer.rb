@@ -10,7 +10,6 @@ class NightWriter < Translator
   end
   
   def translate(message_text)    
-    # require'pry';binding.pry
     braille_array = message_text.chars.filter_map do |letter|
       @braille_alphabet[letter]
     end

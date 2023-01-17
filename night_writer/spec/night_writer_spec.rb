@@ -1,5 +1,6 @@
 require_relative 'spec_helper'
 
+
 RSpec.describe NightWriter do
   let(:night_writer) {NightWriter.new}
   before do
@@ -25,7 +26,8 @@ RSpec.describe NightWriter do
     expect(night_writer.translate("hi")).to eq("00.0\n...0\n0...")
   end
 
-  xit 'can translate and wrap text longer than 80 characters' do
-    expect(night_writer.translate("hello there you cool person that i enjoy")
+  it 'can translate and wrap text' do
+    expected = ".0000...000..00.0...00000..00...000.0....00.0.00.0..0.000.00...0000...000.0.0...\n00......000..0.00.......0..0..........0.0.000.....0..0..0..0........0..00.0...0.0.0.......0000..\n0.0.00\n.00..0\n0.0.0."
+    expect(night_writer.translate("the quick brown fox jumps over the lazy dog")).to eq(expected)
   end
 end
