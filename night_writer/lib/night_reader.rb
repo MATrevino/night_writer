@@ -9,6 +9,15 @@ class NightReader < Translator
     @write_file = ARGV[1]
     super
   end
+
+  def call
+    message_text = File.read(@read_file)
+    
+    translated = translate(message_text)
+    
+    puts "Created #{@write_file} contains #{translated.delete("\n").length} characters"
+    File.write(@write_file, translated)
+  end
   
   def translate(message_text)
     br_message_array = []

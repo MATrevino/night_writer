@@ -42,16 +42,6 @@ class Translator
     }
   end
 
-  def call
-    message_text = File.read(@read_file)
-    
-    translated = translate(message_text)
-    require'pry';binding.pry
-    puts "Created #{@write_file} contains #{translated.length} characters"
-    
-    File.write(@write_file, translated)
-  end
-
   def bra_to_eng_alphabet
     @braille_alphabet.invert
   end

@@ -8,7 +8,16 @@ class NightWriter < Translator
     @write_file = ARGV[1]
     super
   end
-  
+
+  def call
+    message_text = File.read(@read_file)
+    
+    translated = translate(message_text)
+    
+    puts "Created #{@write_file} contains #{translated.delete("\n").length/6} characters"
+    File.write(@write_file, translated)
+  end
+
   def translate(message_text)    
     braille_array = message_text.chars.filter_map do |letter|
       @braille_alphabet[letter]
